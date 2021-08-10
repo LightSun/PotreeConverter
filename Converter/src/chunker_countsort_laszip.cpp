@@ -213,6 +213,24 @@ namespace chunker_countsort_laszip {
 					double x = coordinates[0];
 					double y = coordinates[1];
 					double z = coordinates[2];
+                    {
+                        stringstream ss;
+                        if(x > max.x){
+                            ss << "point(x > box.max.x) force(x=max): x = " << x << ", max.x = " << max.x << endl;
+                            x = max.x;
+                        }
+                        if(y > max.y){
+                            ss << "point(y > box.max.y) force(y=max): y = " << y << ", max.y = " << max.y << endl;
+                            y = max.y;
+                        }
+                        if(z > max.z){
+                            ss << "point(z > box.max.z) force(z=max): z = " << z << ", max.z = " << max.z << endl;
+                            z = max.z;
+                        }
+                        if(ss.str().length() > 0){
+                            logger::ERROR(ss.str());
+                        }
+                    }
 
 					int32_t X = int32_t((x - posOffset.x) / posScale.x);
 					int32_t Y = int32_t((y - posOffset.y) / posScale.y);

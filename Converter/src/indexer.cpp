@@ -446,7 +446,7 @@ Hierarchy Indexer::createHierarchy(string path) {
 	// type + childMask + numPoints + offset + size
 	constexpr int bytesPerNode = 1 + 1 + 4 + 8 + 8;
 
-	auto chunkSize = [](HierarchyChunk& chunk) {
+    auto chunkSize = [=](HierarchyChunk& chunk) {
 		return chunk.nodes.size() * bytesPerNode;
 	};
 

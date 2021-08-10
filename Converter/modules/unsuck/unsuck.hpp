@@ -15,6 +15,7 @@
 #include <thread>
 #include <cstdint>
 #include <cstring>
+#include <cctype>
 
 using std::cout;
 using std::endl;
